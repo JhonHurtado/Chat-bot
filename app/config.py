@@ -18,9 +18,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger("qa-chatbot")
 
+PROJECT_ROOT = Path(__file__).parent.parent
+
+# Configurar CONTEXT_PATH para que sea relativo a la raíz del proyecto
+CONTEXT_PATH = os.getenv("QA_CONTEXT_PATH", 
+                         str(PROJECT_ROOT / "context" / "context.txt"))
 # Cargar variables de entorno (con valores por defecto)
 MODEL_NAME = os.getenv("QA_MODEL_NAME", "distilbert-base-uncased-distilled-squad")
-CONTEXT_PATH = os.getenv("QA_CONTEXT_PATH", Path("context/context.txt").absolute())
 ENABLE_CORS = os.getenv("QA_ENABLE_CORS", "true").lower() == "true"
 ALLOWED_ORIGINS = os.getenv("QA_ALLOWED_ORIGINS", "*").split(",")
 MAX_ANSWER_LENGTH = int(os.getenv("QA_MAX_ANSWER_LENGTH", "50"))
@@ -31,6 +35,9 @@ CACHE_TIMEOUT = int(os.getenv("QA_CACHE_TIMEOUT", "3600"))  # Segundos para inva
 PORT = int(os.getenv("QA_PORT", "8000"))
 HOST = os.getenv("QA_HOST", "0.0.0.0")
 RELOAD = os.getenv("QA_RELOAD", "false").lower() == "true"
+
+#log para ver el path del contexto
+logger.info(f"Context path: {CONTEXT_PATH} : ")
 
 # Validar configuración
 if not ADMIN_API_KEY:
