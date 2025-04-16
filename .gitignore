@@ -1,0 +1,61 @@
+# Archivos de entorno y configuración
+.env
+*.env
+.env.*
+!.env.example
+
+# Archivos de registro
+*.log
+logs/
+qa_service.log
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Carpetas de dependencias
+node_modules/
+.npm
+
+# Archivos de IDE y editores
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+
+# Archivos de compilación
+*.so
+dist/
+build/
+*.egg-info/
+
+# Archivos temporales
+tmp/
+temp/
+.tmp/
+
+# Posibles archivos de base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de cache
+.cache/
+.mypy_cache/
